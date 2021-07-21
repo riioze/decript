@@ -4,7 +4,7 @@ labc = list(ABC)
 random.shuffle(labc)
 rABC = ''.join(labc)
 print(rABC)
-message = input().lower()
+message = input().lower().replace('é','e').replace('è','e').replace('ê','e').replace('à','a').replace('ç','c')
 r = ''
 for char in message:
     if char in ABC:
