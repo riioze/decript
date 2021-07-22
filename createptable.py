@@ -1,5 +1,6 @@
 import os
 import io
+import json
 path='ref.txt'
 
 
@@ -29,3 +30,6 @@ for lettre,ligne in dp.items():
     for c in ABC+'.':
         ligne[c]/=ligne['total']
     print(lettre,ligne)
+
+with open('table.txt','w') as f:
+    f.write(json.dumps(dp))
