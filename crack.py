@@ -1,13 +1,13 @@
 import os
 import json
 import random
-
+import math
 def pfr(message,table):
     p=0
     for x in range(len(message)-2):
         if message[x] in ABC:
             if message[x+1] in ABC:
-                p+=table[message[x]][message[x+1]]/(len(message)-1)
+                p+=math.log(table[message[x]][message[x+1]]+2,2)/(len(message)-1)
     return p
 def evaluate(message,key,table):
     r = ''
@@ -46,7 +46,7 @@ while p<.9:
     newABC[p1] = l2
     newABC[p2] = l1
     trad,np = evaluate(message,newABC,table)
-    if np > p or (random.random()*np < 0.00001):
+    if np > p or (random.random()*np < 0.0001):
         p = np
         key = ''.join(newABC)
         print(f'{key} : {trad} : {p}')
